@@ -11,14 +11,16 @@
     "tsup": "^8.2.0",
     "typescript": "^5.5.3"
   },
-  "types": "dist/types.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "google",
     "local"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --minify --dts",
+    "build": "tsup src/local/index.ts --format cjs,esm --minify --dts && tsup src/google/index.ts --format cjs,esm --minify --dts",
     "lint": "tsc"
   }
 }
